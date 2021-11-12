@@ -168,6 +168,8 @@ fn sha512(inital_msg: &str, initial_len: usize) {
 
         offset += 16;
     }
+
+    //print the resulting hash as hexadecimals -> 016 is required so rust does not cut off zeros in the front
     println!("{:016x}{:016x}{:016x}{:016x}{:016x}{:016x}{:016x}{:016x}", H[0], H[1], H[2], H[3], H[4], H[5], H[6], H[7]);
 }
 
