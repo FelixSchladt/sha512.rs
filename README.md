@@ -16,7 +16,7 @@ For a higher performance implementation refer to https://github.com/RustCrypto/h
 rustup is required
 
 ```
-cargo run --release -s "hello world\n"
+ --cargo run --release -- -s "hello world\n"
 ```
 
 ## Reference
