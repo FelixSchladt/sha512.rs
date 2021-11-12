@@ -16,7 +16,6 @@ fn as_u64_be(array: &[u8]) -> u64 {
         + ((array[7] as u64) << 0)
 }
 
-
 //** These are predefeined logical definitions from the spec
 //rotate x right for the given amount n
 fn rotr(x: u64, n: u32) -> u64 {
@@ -60,6 +59,7 @@ fn ssig1(x: u64) -> u64 {
 //**
 
 fn sha512(inital_msg: &str, initial_len: usize) {
+
     //predefined values by the specification    
     let k:[u64; 80] = [0x428a2f98d728ae22,0x7137449123ef65cd,0xb5c0fbcfec4d3b2f,0xe9b5dba58189dbbc, 
          0x3956c25bf348b538,0x59f111f1b605d019,0x923f82a4af194f9b,0xab1c5ed5da6d8118,
@@ -86,7 +86,6 @@ fn sha512(inital_msg: &str, initial_len: usize) {
 
     //read msg into vec
     let mut msg: Vec<u8> = Vec::new();
-    
     for character in inital_msg.bytes() {
         msg.push(character);
     }
@@ -119,8 +118,10 @@ fn sha512(inital_msg: &str, initial_len: usize) {
     let mut offset = 0;
     let len = msg_parsed.len();
     while offset < len-1 {
+
         //prepare the message schedule w:
         let mut w:[u64;80] = [0;80];
+
         //parse 16 u64 from the message
         for i in 0..16 {
             w[i] = msg_parsed[offset+i];
